@@ -1,14 +1,16 @@
 import React, { useCallback } from 'react';
 import { Box, Button, Image, Text } from '@chakra-ui/react';
 import Logo from '../Assets/tspLogo.svg';
-import Terra from '../Assets/Terrabg.svg';
+// import Terra from '../Assets/Terrabg.svg';
 import HomeImage from '../Assets/homeImage.svg';
 import { useNavigate } from 'react-router-dom';
-import Card from '../Assets/cardFrame.png';
+// import Card from '../Assets/cardFrame.png';
 import Footer from '../Components/Footer';
-import { BsBriefcaseFill } from 'react-icons/bs';
-
-import { IoIosPerson } from 'react-icons/io';
+// import { BsBriefcaseFill } from 'react-icons/bs';
+import { FaGooglePlay } from 'react-icons/fa';
+import HelpSection from '../Components/HelpSection';
+// import { IoIosPerson } from 'react-icons/io';
+import FaqSection from '../Components/FaqSection';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -104,14 +106,107 @@ export default function Home() {
               </Box>
 
               <Box mt='5%' display='flex'>
-                <Button width='350px' height='70px' colorScheme='pink'>
-                  Sign up as an Agent
+                <Button
+                  width='350px'
+                  fontSize='16px'
+                  height='70px'
+                  colorScheme='pink'
+                  display='flex'
+                  justifyContent='space-around'
+                >
+                  <Box>
+                    <FaGooglePlay size='32' />
+                  </Box>
+                  <Box
+                    display='flex'
+                    flexDirection='column'
+                    alignItems='flex-start'
+                  >
+                    <Text>Download the Agency App on </Text>
+
+                    <Text fontSize='28px'>Google Play</Text>
+                  </Box>
                 </Button>
+              </Box>
+              <Box mt='15%'>
+                <Text
+                  textAlign='start'
+                  color='#000000'
+                  fontWeight='600'
+                  fontSize='24px'
+                >
+                  REGISTER AS AN AGENT
+                </Text>
+              </Box>
+              <Box
+                px='15px'
+                py='20px'
+                mt='20px'
+                borderRadius='24px'
+                width='100%'
+                boxShadow='2px 2px 1px 1px rgba(148, 47, 139, 0.1)'
+                minWidth='760px'
+                backgroundColor='#FFF'
+                display='flex'
+              >
+                <Box
+                  // width='50%'
+                  display='flex'
+                  flexDirection='column'
+                  justifyContent='center'
+                  alignItems='center'
+                  minWidth='360px'
+                  px='5px'
+                  width='100%'
+                >
+                  <Text
+                    color='#2C2E2F'
+                    fontWeight='600'
+                    fontSize='16px'
+                    textAlign='center'
+                  >
+                    Register Now as an Individual /Sole Proprietor
+                  </Text>
+                  <Button
+                    mt='20px'
+                    width='50%'
+                    colorScheme='pink'
+                    variant='outline'
+                  >
+                    Register
+                  </Button>
+                </Box>
+                <Box
+                  // width='50%'
+                  display='flex'
+                  flexDirection='column'
+                  justifyContent='center'
+                  alignItems='center'
+                  minWidth='360px'
+                  width='100%'
+                >
+                  <Text
+                    textAlign='center'
+                    color='#2C2E2F'
+                    fontWeight='600'
+                    fontSize='16px'
+                  >
+                    Register now as an exclusive Corporate Entity
+                  </Text>
+                  <Button
+                    mt='20px'
+                    width='50%'
+                    colorScheme='pink'
+                    variant='outline'
+                  >
+                    Register
+                  </Button>
+                </Box>
               </Box>
             </Box>
           </Box>
         </Box>
-        <Box maxWidth='1340px' margin='0 auto'>
+        {/* <Box maxWidth='1340px' margin='0 auto'>
           <Box>
             <Text fontSize='32px' fontWeight='600' color='#000000'>
               Register As An Agent
@@ -156,14 +251,16 @@ export default function Home() {
               </Button>
             </Box>
           </Box>
-        </Box>
-        <Box
+        </Box> */}
+        <HelpSection />
+        <FaqSection />
+        {/* <Box
           mt='40px'
           backgroundImage={Terra}
           backgroundSize='100%'
           backgroundPosition='100%'
           height='660px'
-        ></Box>
+        ></Box> */}
         {/* <Box>FOOTER</Box> */}
         <Footer />
       </Box>
