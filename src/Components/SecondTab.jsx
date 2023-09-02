@@ -1,5 +1,6 @@
 import { Box, Image, Text } from '@chakra-ui/react';
 import React from 'react';
+import Desola from '../Assets/dev.jpg';
 
 export default function SecondTab() {
   return (
@@ -7,15 +8,15 @@ export default function SecondTab() {
       <Box margin='0 auto' width='100%'>
         <Box
           display='flex'
-          flexDirection='row'
+          flexDirection={['column', 'row']}
           justifyContent='space-between'
           minwidth='300px'
           width='100%'
           px='90px'
           py='35px'
-          border='2px'
+          alignItems='center'
         >
-          <Box maxWidth='500px' width='100%' border='2px' mt='20px' py='10px'>
+          <Box maxWidth='500px' width='100%' mt='20px' py='10px'>
             <Text fontWeight='500' textAlign='start' fontSize='14px'>
               The sole proprietor agent, embodied by the-art POS terminal,
               becomes your partner in optimizing operations, delighting
@@ -28,8 +29,7 @@ export default function SecondTab() {
             </Text>
           </Box>
           <Box mt='20px'>
-            Image
-            <Image />
+            <Image src={Desola} width='480px' height='360px' />
           </Box>
         </Box>
       </Box>

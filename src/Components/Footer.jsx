@@ -1,10 +1,11 @@
-import { Box, Button,  Image, Input, Text } from '@chakra-ui/react';
+import { Box, Button, Image, Input, Text } from '@chakra-ui/react';
 import React from 'react';
 import Tiktok from '../Assets/tiktokIcon.svg';
 import Facebook from '../Assets/facebookIcon.svg';
 import Twitter from '../Assets/twitterIcon.svg';
 import Instagram from '../Assets/InstagramIcon.svg';
 import Linkedin from '../Assets/LinkedInIcon.svg';
+import { FaGoogle, FaGooglePlay } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -14,7 +15,7 @@ export default function Footer() {
         width='100%'
         maxWidth='1340px'
         margin='0 auto'
-        flexDirection='row'
+        flexDirection={['column', 'row']}
         justifyContent='space-between'
         p='20px'
         pb='5%'
@@ -41,12 +42,20 @@ export default function Footer() {
             />
           </Box>
           <Box mt='10%'>
-            <Box display='flex' justifyContent='space-between'>
-              <Button width='48%' colorScheme='pink'>
-                App Store
-              </Button>
-              <Button width='48%' colorScheme='pink'>
-                Play Store
+            <Box display='flex'>
+              <Button
+                p='10px'
+                width='360px'
+                height='70px'
+                color='#FFF'
+                _hover={{ bg: '#C296BE' }}
+                bg='#862E7E'
+              >
+                <FaGooglePlay size={32} />
+                <Box display='flex' alignItems='start' flexDirection='column'>
+                  Get it on
+                  <Text>Google Play</Text>
+                </Box>
               </Button>
             </Box>
           </Box>

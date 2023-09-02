@@ -80,6 +80,7 @@ export default function Home() {
           height='945px'
           width='100%'
           pt='7%'
+          px={['20px', '10px']}
         >
           <Box
             width='100%'
@@ -96,22 +97,33 @@ export default function Home() {
               justifyContent='flex-start'
             >
               <Box>
-                <Text textAlign='start' fontSize='48px' fontWeight='700'>
+                <Text
+                  textAlign='start'
+                  fontSize={['32px', '48px']}
+                  fontWeight='700'
+                >
                   Welcome to TerraMoni
                 </Text>
               </Box>
               <Box mt='5%'>
-                <Text textAlign='start' fontSize='24px' fontWeight='500'>
+                <Text
+                  textAlign='start'
+                  fontSize={['18px', '24px']}
+                  fontWeight='500'
+                >
                   The Preferred One-Stop-Shop for Agency Banking Solutions.
                 </Text>
               </Box>
 
               <Box mt='5%' display='flex'>
                 <Button
-                  width='350px'
+                  width={['260px', '350px']}
+                  p={['5px', '']}
                   fontSize='16px'
                   height='70px'
-                  colorScheme='pink'
+                  _hover={{ bg: '#C296BE' }}
+                  bg='#862E7E'
+                  color='#FFF'
                   display='flex'
                   justifyContent='space-around'
                 >
@@ -146,9 +158,10 @@ export default function Home() {
                 borderRadius='24px'
                 width='100%'
                 boxShadow='2px 2px 1px 1px rgba(148, 47, 139, 0.1)'
-                minWidth='760px'
+                maxWidth={['320px', '760px']}
                 backgroundColor='#FFF'
                 display='flex'
+                flexDirection={['column', 'row']}
               >
                 <Box
                   // width='50%'
@@ -156,7 +169,7 @@ export default function Home() {
                   flexDirection='column'
                   justifyContent='center'
                   alignItems='center'
-                  minWidth='360px'
+                  minWidth={['220px', '360px']}
                   px='5px'
                   width='100%'
                 >
@@ -183,7 +196,7 @@ export default function Home() {
                   flexDirection='column'
                   justifyContent='center'
                   alignItems='center'
-                  minWidth='360px'
+                  minWidth={['220px', '360px']}
                   width='100%'
                 >
                   <Text
@@ -256,14 +269,6 @@ export default function Home() {
         <Agent />
         <HelpSection />
         <FaqSection />
-        {/* <Box
-          mt='40px'
-          backgroundImage={Terra}
-          backgroundSize='100%'
-          backgroundPosition='100%'
-          height='660px'
-        ></Box> */}
-        {/* <Box>FOOTER</Box> */}
         <Footer />
       </Box>
     </div>

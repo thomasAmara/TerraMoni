@@ -1,5 +1,6 @@
 import { Box, Image, Text } from '@chakra-ui/react';
 import React from 'react';
+import Desola from '../Assets/dev.jpg';
 
 export default function FirstTab() {
   return (
@@ -7,7 +8,7 @@ export default function FirstTab() {
       <Box margin='0 auto' width='100%'>
         <Box
           display='flex'
-          flexDirection='row'
+          flexDirection={['column', 'row']}
           justifyContent='space-between'
           minwidth='700px'
           width='100%'
@@ -18,6 +19,7 @@ export default function FirstTab() {
             display='flex'
             maxWidth='600px'
             width='100%'
+            alignItems='center'
             mt='20px'
             px='20px'
             py='10px'
@@ -37,8 +39,7 @@ export default function FirstTab() {
             </Text>
           </Box>
           <Box mt='20px'>
-            Image
-            <Image />
+            <Image src={Desola} width='480px' height='360px' />
           </Box>
         </Box>
       </Box>

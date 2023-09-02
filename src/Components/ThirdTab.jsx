@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Image, Text } from '@chakra-ui/react';
+import Desola from '../Assets/dev.jpg';
 
 export default function ThirdTab() {
   return (
@@ -7,14 +8,20 @@ export default function ThirdTab() {
       <Box margin='0 auto' width='100%'>
         <Box
           display='flex'
-          flexDirection='row'
+          flexDirection={['column', 'row']}
           justifyContent='space-between'
           minwidth='700px'
           width='100%'
           px='90px'
           py='35px'
         >
-          <Box maxWidth='600px' display='flex' mt='20px' py='10px'>
+          <Box
+            maxWidth='600px'
+            alignItems='center'
+            display='flex'
+            mt='20px'
+            py='10px'
+          >
             <Text
               alignItems='flex-start'
               textAlign='start'
@@ -30,8 +37,7 @@ export default function ThirdTab() {
             </Text>
           </Box>
           <Box>
-            Image
-            <Image />
+            <Image src={Desola} width='480px' height='360px' />
           </Box>
         </Box>
       </Box>

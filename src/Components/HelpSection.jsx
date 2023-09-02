@@ -16,7 +16,7 @@ export default function HelpSection() {
           display='flex'
           p='20px'
           justifyContent='center'
-          flexDirection='row'
+          flexDirection={['column', 'row']}
         >
           <Box>
             <Image src={Pana} alt='' />
@@ -26,6 +26,7 @@ export default function HelpSection() {
             // flexDirection='column'
             alignItems='center'
             width='50%'
+            mt={['4%', '0px']}
           >
             <Box>
               <Box margin='0 auto' py='10px' width='80%' px='30px'>
@@ -45,16 +46,21 @@ export default function HelpSection() {
                 py='25px'
               >
                 <Button
-                  width='400px'
+                  width={['300px', '400px']}
                   height='60px'
-                  colorScheme='pink'
+                  _hover={{ bg: '#C296BE' }}
+                  bg='#862E7E'
+                  color='#FFF'
                   variant='solid'
                   borderRadius='8px'
 
                   //   ml='-12%'
                 >
                   <FaGooglePlay size='32px' />
-                  Get it on Play Store
+                  <Box display='flex' alignItems='start' flexDirection='column'>
+                    Get it on
+                    <Text>Google Play</Text>
+                  </Box>
                 </Button>
               </Box>
             </Box>

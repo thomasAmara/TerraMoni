@@ -38,10 +38,10 @@ export default function Agent() {
             justifyContent='space-around'
           >
             <Box
-              p='20px'
+              p={['10px', '20px']}
               cursor='pointer'
               borderRadius='5px'
-              minWidth='200px'
+              minWidth={['100px', '200px']}
               id='tab1'
               bg={activeTab === 'tab1' ? '#942F8B' : '#E7E7E7'}
               color={activeTab === 'tab1' ? '#FFF' : '#8E8A8a'}
@@ -52,7 +52,7 @@ export default function Agent() {
               </Text>
             </Box>
             <Box
-              p='20px'
+              p={['10px', '20px']}
               cursor='pointer'
               borderRadius='5px'
               id='tab2'
@@ -65,8 +65,8 @@ export default function Agent() {
               </Text>
             </Box>
             <Box
-              p='20px'
-              minWidth='200px'
+              p={['10px', '20px']}
+              minWidth={['100px', '200px']}
               cursor='pointer'
               borderRadius='5px'
               id='tab3'
