@@ -10,6 +10,7 @@ import Footer from '../Components/Footer';
 import { FaGooglePlay } from 'react-icons/fa';
 import HelpSection from '../Components/HelpSection';
 // import { IoIosPerson } from 'react-icons/io';
+import Agent from '../Components/Agent';
 import FaqSection from '../Components/FaqSection';
 
 export default function Home() {
@@ -18,10 +19,10 @@ export default function Home() {
     () => navigate('/login', { replace: true }),
     [navigate]
   );
-  const handleCoporate = useCallback(
-    () => navigate('/coporate', { replace: true }),
-    [navigate]
-  );
+  // const handleCoporate = useCallback(
+  //   () => navigate('/coporate', { replace: true }),
+  //   [navigate]
+  // );
   return (
     <div>
       <Box maxWidth='1440px' width='100%'>
@@ -252,6 +253,7 @@ export default function Home() {
             </Box>
           </Box>
         </Box> */}
+        <Agent />
         <HelpSection />
         <FaqSection />
         {/* <Box

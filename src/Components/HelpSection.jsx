@@ -36,12 +36,22 @@ export default function HelpSection() {
                   there to make your life easy.
                 </Text>
               </Box>
-              <Box>
+              <Box
+                margin='0 auto'
+                // px='30px'
+                display='flex'
+                alignItems='flex-start'
+                width='72%'
+                py='25px'
+              >
                 <Button
                   width='400px'
                   height='60px'
                   colorScheme='pink'
                   variant='solid'
+                  borderRadius='8px'
+
+                  //   ml='-12%'
                 >
                   <FaGooglePlay size='32px' />
                   Get it on Play Store
