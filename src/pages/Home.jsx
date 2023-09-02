@@ -158,7 +158,7 @@ export default function Home() {
                 borderRadius='24px'
                 width='100%'
                 boxShadow='2px 2px 1px 1px rgba(148, 47, 139, 0.1)'
-                maxWidth={['320px', '760px']}
+                minWidth={[null, '760px']}
                 backgroundColor='#FFF'
                 display='flex'
                 flexDirection={['column', 'row']}

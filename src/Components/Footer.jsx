@@ -21,7 +21,7 @@ export default function Footer() {
         pb='5%'
         // border='2px'
       >
-        <Box mt='25px' width='35%'>
+        <Box mt='25px' width={['100%', '35%']}>
           <Box>
             <Text
               textAlign='start'
@@ -60,7 +60,7 @@ export default function Footer() {
             </Box>
           </Box>
         </Box>
-        <Box mt='25px' width='30%'>
+        <Box mt='25px' width={['100%', '30%']}>
           <Box textAlign='start'>
             <Text color='#942F8B' fontSize='20px' fontWeight='600'>
               company
@@ -84,7 +84,7 @@ export default function Footer() {
         </Box>
         <Box
           display='flex'
-          width='40%'
+          width={['100%', '40%']}
           maxWidth='400px'
           mt='25px'
           flexDirection='column'
