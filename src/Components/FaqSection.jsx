@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { BiMinus } from 'react-icons/bi';
 import { BiPlus } from 'react-icons/bi';
 import POS from '../Assets/Terrabg.png';
-import { act } from 'react-dom/test-utils';
 
 export default function FaqSection() {
   const [active, setActive] = useState(false);
