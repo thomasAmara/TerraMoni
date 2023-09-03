@@ -6,6 +6,7 @@ import Apple from '../Assets/appleIcon.svg';
 import Google from '../Assets/googleIcon.svg';
 import Meta from '../Assets/metaIcon.svg';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Login() {
   const navigate = useNavigate();
@@ -13,18 +14,31 @@ function Login() {
     () => navigate('/register', { replace: true }),
     [navigate]
   );
+
   return (
     <div>
       <Box
         display='flex'
-        flexDirection='row'
-        height='100vh'
+        flexDirection={['column', 'row']} 
+        minHeight='100vh'
         width='100%'
         maxWidth='1440px'
+        alignItems={['center', 'center']}
+        justifyContent={['center', 'center']}
       >
-        <Box maxWidth='860px' width='100%' px='30px'>
+        <Box
+          maxWidth={['100%', '860px']}
+          px={['0', '80px']}
+          width='100%'
+          height='100%'
+          display='flex'
+          flexDirection='column'
+          alignItems={['center', 'center']}
+          justifyContent={['center', 'flex-start']}
+          pb={['20px', '0']}
+        >
           <Box
-            display='flex'
+            display={['block', 'flex']} 
             flexDirection='column'
             justifyContent='center'
             width='100%'
@@ -33,15 +47,14 @@ function Login() {
             maxWidth='700px'
             px='15px'
           >
-            <Text fontSize='48px' fontWeight='700' color='#942F8B'>
+            <Text fontSize={['36px', '48px']} fontWeight='700' color='#942F8B'>
               Sign In
             </Text>
             <Box
               display='flex'
               flexDirection='row'
               alignItems='center'
-              margin='0 auto'
-              //   justifyContent='center'
+              margin={['20px auto', 0]}
               px='25px'
               width='100%'
               maxWidth='510px'
@@ -52,11 +65,11 @@ function Login() {
                 p='5px'
                 justifyContent='center'
                 borderRadius='8px'
-                // p='5px'
                 maxWidth='130px'
                 width='100%'
                 height='52px'
                 bgColor='#F7F7F7'
+                margin={['5px 0', '10px 0']}
               >
                 <Image src={Google} alt='google' />
               </Box>
@@ -65,53 +78,57 @@ function Login() {
                 p='5px'
                 justifyContent='center'
                 borderRadius='8px'
-                // p='5px'
                 maxWidth='130px'
                 width='100%'
                 height='52px'
                 bgColor='#F7F7F7'
+                margin={['5px 0', '0 10px']}
               >
-                <Image src={Meta} alt='google' />
+                <Image src={Meta} alt='meta' />
               </Box>
               <Box
                 display='flex'
                 p='5px'
                 justifyContent='center'
                 borderRadius='8px'
-                // p='5px'
                 maxWidth='130px'
                 width='100%'
                 height='52px'
                 bgColor='#F7F7F7'
               >
-                <Image src={Apple} alt='google' />
+                <Image src={Apple} alt='apple' />
               </Box>
             </Box>
-            <Box py='20px' maxWidth='600px' px='25px'>
+            <Box py={['10px', '0']} width='100%' maxWidth='600px' px='0'>
               <Formik>
                 <Form>
                   <Input mt='20px' type='email' name='email' />
                   <Input mt='20px' type='password' name='password' />
-                </Form>
-              </Formik>
-            </Box>
-            <Box maxWidth='600px' py='15px' px='20px'>
+
+                  <Box maxWidth='600px' width='100%' mt={['10px', '20px']}>
               <Button width='100%' colorScheme='pink'>
                 Login
               </Button>
+              <p style={{ marginTop: '10px', textAlign: 'left', fontSize: '12px'}}>Don't have an account yet? Register <Link to="/register"> <span style={{ color: '#942F8B', cursor: 'pointer'}}>Here</span></Link></p>
             </Box>
+                </Form>
+              </Formik>
+            </Box>
+            
           </Box>
         </Box>
+
         <Box
           bgImage={Bg}
-          p='20px'
+          p={['20px', '40px']}
           width='100%'
-          backgroundPosition='100% 100%'
+          display={['none', 'flex']}
+          height={['auto', '100vh']} 
           backgroundSize='cover'
           maxWidth='580px'
         >
           <Box
-            display='flex'
+            display={['none', 'flex']} 
             width='100%'
             height='100%'
             justifyContent='center'
@@ -119,14 +136,14 @@ function Login() {
             alignItems='center'
           >
             <Box>
-              <Text fontSize='48px' fontWeight='700' color='#FFF'>
-                Hello !
+              <Text fontSize={['32px', '48px']} fontWeight='700' color='#FFF'>
+                Hello!
               </Text>
               <Text fontSize='18px' fontWeight='500' color='#FFF'>
                 Start your business with us
               </Text>
             </Box>
-            <Box mt='20px'>
+            <Box mt={['20px', '30px']}>
               <Button color='#FFF' onClick={handleOnClick} variant='outline'>
                 Create Account
               </Button>
