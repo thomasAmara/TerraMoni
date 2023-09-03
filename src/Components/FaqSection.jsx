@@ -1,14 +1,4 @@
-import {
-  Box,
-  Text,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  Image,
-  Stack,
-  Button,
-} from '@chakra-ui/react';
+import { Box, Text, Image, Stack, Button } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { BiMinus } from 'react-icons/bi';
 import { BiPlus } from 'react-icons/bi';
