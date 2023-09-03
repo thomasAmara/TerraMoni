@@ -19,10 +19,17 @@ export default function Home() {
     () => navigate('/login', { replace: true }),
     [navigate]
   );
-  // const handleCoporate = useCallback(
-  //   () => navigate('/coporate', { replace: true }),
-  //   [navigate]
-  // );
+
+  const handleAgent = useCallback(
+    () => navigate('/agent', { replace: true }),
+    [navigate]
+  );
+
+  const handleCoporate = useCallback(
+    () => navigate('/coporate', { replace: true }),
+    [navigate]
+  );
+
   return (
     <div>
       <Box maxWidth='1440px' width='100%'>
@@ -186,6 +193,7 @@ export default function Home() {
                     width='50%'
                     colorScheme='pink'
                     variant='outline'
+                    onClick={handleAgent}
                   >
                     Register
                   </Button>
@@ -212,6 +220,7 @@ export default function Home() {
                     width='50%'
                     colorScheme='pink'
                     variant='outline'
+                    onClick={handleCoporate}
                   >
                     Register
                   </Button>

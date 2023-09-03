@@ -5,7 +5,7 @@ import Facebook from '../Assets/facebookIcon.svg';
 import Twitter from '../Assets/twitterIcon.svg';
 import Instagram from '../Assets/InstagramIcon.svg';
 import Linkedin from '../Assets/LinkedInIcon.svg';
-import { FaGoogle, FaGooglePlay } from 'react-icons/fa';
+import { FaGooglePlay } from 'react-icons/fa';
 
 export default function Footer() {
   return (
