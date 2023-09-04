@@ -4,7 +4,7 @@ import React from 'react';
 export default function Uploads() {
   return (
     <div>
-      <Box>
+      <Box backgroundColor='red' columns={[1, 2]}>
         <SimpleGrid minChildWidth='148px' width='100%' spacing='15px'>
           <Box>
             <Wrap>

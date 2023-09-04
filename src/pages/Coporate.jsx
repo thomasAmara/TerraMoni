@@ -40,20 +40,24 @@ export default function Coporate() {
       >
         <Box
           bgImage={Bg}
+          display={['none', 'block']}
           p='30px'
-          width='100%'
-          backgroundPosition='100% 100%'
+          width='40%'
+          backgroundPosition='cover'
           backgroundSize='cover'
           maxWidth='580px'
+          height='100vh'
         ></Box>
         <Box
-          maxWidth='860px'
-          width='100%'
-          display='flex'
-          alignItems='center'
-          //   px='20px'
+            maxWidth='860px'
+            width='100%'
+            display='flex'
+            alignItems='center'
+            padding={['50px 15px', '0 0']}
+            flexWrap={['wrap', 'wrap']}
+            backgroundColor='beige'
         >
-          <Box width='100%' margin='0 auto' maxWidth='600px'>
+          <Box width='100%' margin='0 auto' maxWidth='600px' backgroundColor='red'>
             <Box>
               <Text
                 textTransform='uppercase'
@@ -86,7 +90,14 @@ export default function Coporate() {
               className={'stepper'}
               stepClassName={'stepper__step'}
             />
-            <Box>
+            <Box backgroundColor='green'
+              display={{base:'flex', md:'none', lg:'block'}}
+              flexWrap={{base:'wrap', md:'none', lg:'block'}}
+              width={{base:'100%', md:'100%', lg:'100%'}}
+            // display={['block', 'initial']}
+            // display='flex'
+            // flexWrap={['wrap', 'initial']}
+            >
               {(() => {
                 switch (formData.step) {
                   case 1:

@@ -42,7 +42,7 @@ export default function Register() {
           display='flex'
           alignItems='center'
           px={['20px', '30px']} 
-          backgroundColor='skyblue'
+          // backgroundColor='skyblue'
         >
           <Box width='100%' margin={['0 auto', null, '0']} maxWidth={['100%', '600px']}>
             <Text fontSize={['36px', '48px']} fontWeight='700' color='#942F8B' m='0'>Register</Text>

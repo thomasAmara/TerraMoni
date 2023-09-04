@@ -28,6 +28,7 @@ export default function AgentRegister() {
           backgroundPosition='100% 100%'
           backgroundSize='cover'
           maxWidth='580px'
+          display={{base:'none', md:'none', lg:'block'}}
           //   height='100vh'
           border='2px'
         ></Box>
@@ -38,7 +39,9 @@ export default function AgentRegister() {
           overflow='scroll'
           px='30px'
         >
-          <Box width='100%' margin='0 auto' maxWidth='600px'>
+          <Box width='100%' margin='0 auto' maxWidth='600px' py='30px'
+          flexWrap={['wrap', 'no-wrap']}
+          >
             <Box>
               <Text fontSize='48px' fontWeight='700' color='#942F8B'>
                 Sign In
@@ -62,7 +65,7 @@ export default function AgentRegister() {
                 column={2}
                 minChildWidth='120px'
                 width='100%'
-                spacing='15px'
+                spacing='15px' 
               >
                 <Box>
                   <Wrap>
