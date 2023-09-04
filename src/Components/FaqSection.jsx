@@ -34,6 +34,7 @@ export default function FaqSection() {
         </Box>
 
         <Box
+          mt='3%'
           display='flex'
           flexDirection={['column-reverse', 'row']}
           alignItems='center'
@@ -56,7 +57,11 @@ export default function FaqSection() {
                   <Text fontSize='24px' fontWeight='600' color='#152329'>
                     Q1 What is a Terminal
                   </Text>
-                  <Button bg='#942F8B' onClick={() => setActive(!active)}>
+                  <Button
+                    bg='#942F8B'
+                    _hover={{ bg: '#C296BE' }}
+                    onClick={() => setActive(!active)}
+                  >
                     {active === true ? (
                       <BiMinus color='#FFF' fontSize='32px' />
                     ) : (
@@ -88,7 +93,11 @@ export default function FaqSection() {
                   <Text fontSize='24px' fontWeight='600' color='#152329'>
                     Q2 How can I request for a POS
                   </Text>
-                  <Button bg='#942F8B' onClick={() => setActive1(!active1)}>
+                  <Button
+                    bg='#942F8B'
+                    _hover={{ bg: '#C296BE' }}
+                    onClick={() => setActive1(!active1)}
+                  >
                     {active1 === true ? (
                       <BiMinus color='#FFF' fontSize='32px' />
                     ) : (
@@ -120,7 +129,11 @@ export default function FaqSection() {
                   <Text fontSize='24px' fontWeight='600' color='#152329'>
                     Q3 What is a Terminal
                   </Text>
-                  <Button bg='#942F8B' onClick={() => setActive2(!active2)}>
+                  <Button
+                    bg='#942F8B'
+                    _hover={{ bg: '#C296BE' }}
+                    onClick={() => setActive2(!active2)}
+                  >
                     {active2 === true ? (
                       <BiMinus color='#FFF' fontSize='32px' />
                     ) : (
@@ -152,7 +165,11 @@ export default function FaqSection() {
                   <Text fontSize='24px' fontWeight='600' color='#152329'>
                     Q4 Is Terra Moni Licensed
                   </Text>
-                  <Button bg='#942F8B' onClick={() => setActive3(!active3)}>
+                  <Button
+                    bg='#942F8B'
+                    _hover={{ bg: '#C296BE' }}
+                    onClick={() => setActive3(!active3)}
+                  >
                     {active3 === true ? (
                       <BiMinus color='#FFF' fontSize='32px' />
                     ) : (
@@ -184,7 +201,11 @@ export default function FaqSection() {
                   <Text fontSize='24px' fontWeight='600' color='#152329'>
                     Q5 How much does a POS Terminal cost
                   </Text>
-                  <Button bg='#942F8B' onClick={() => setActive4(!active4)}>
+                  <Button
+                    bg='#942F8B'
+                    _hover={{ bg: '#C296BE' }}
+                    onClick={() => setActive4(!active4)}
+                  >
                     {active4 === true ? (
                       <BiMinus color='#FFF' fontSize='32px' />
                     ) : (
