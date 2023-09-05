@@ -7,6 +7,15 @@ import DirectorDetails from '../Components/DirectorDetails';
 import Uploads from '../Components/Uploads';
 
 export default function Coporate() {
+  const breakpoints = {
+    base: "0px",
+    sm: "320px",
+    md: "768px",
+    lg: "960px",
+    xl: "1200px",
+    "2xl": "1536px",
+  };
+
   const [formData, setForm] = useState({
     step: 1,
     email: '',
@@ -29,31 +38,34 @@ export default function Coporate() {
 
   const props = { formData, setForm };
   return (
-    <div>
+    
       <Box
         display='flex'
-        flexDirection='row'
-        height='100vh'
+        flexDirection={{base:'column', md:'row'}}
+        // height="100%"
         width='100%'
         maxWidth='1440px'
         // pb='30px'
       >
         <Box
           bgImage={Bg}
+          display={{base:'none', md:'block'}}
           p='30px'
-          width='100%'
+          width='40%'
+          height="100vh"
           backgroundPosition='100% 100%'
           backgroundSize='cover'
-          maxWidth='580px'
+          backgroundRepeat= 'no-repeat'
+          // maxWidth='580px'
         ></Box>
         <Box
-          maxWidth='860px'
+          // maxWidth='860px'
           width='100%'
           display='flex'
           alignItems='center'
-          //   px='20px'
+          px='20px'
         >
-          <Box width='100%' margin='0 auto' maxWidth='600px'>
+          <Box width='100%' margin=' 0 auto' maxWidth='600px'>
             <Box>
               <Text
                 textTransform='uppercase'
@@ -139,6 +151,6 @@ export default function Coporate() {
           </Box>
         </Box>
       </Box>
-    </div>
+   
   );
 }
