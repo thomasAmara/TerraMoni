@@ -5,7 +5,7 @@ export default function Uploads() {
   return (
     <div>
       <Box>
-        <SimpleGrid minChildWidth='148px' width='100%' spacing='15px'>
+        <SimpleGrid minChildWidth={{md:'148px'}} width='100%'spacing='15px'>
           <Box>
             <Wrap>
               <Text color='#942F8B'>Certificate of Incorporation</Text>
@@ -19,7 +19,7 @@ export default function Uploads() {
             </Wrap>
           </Box>
         </SimpleGrid>
-        <SimpleGrid minChildWidth='148px' width='100%' spacing='15px'>
+        <SimpleGrid minChildWidth={{md:'148px'}} width='100%'spacing='15px'>
           <Box>
             <Wrap>
               <Text color='#942F8B'>Business Certificate</Text>
@@ -34,8 +34,8 @@ export default function Uploads() {
           </Box>
         </SimpleGrid>
 
-        <SimpleGrid>
-          <Box width='50%'>
+        <SimpleGrid width={{base: '100%', md: '50%'}}>
+          <Box>
             <Wrap>
               <Text color='#942F8B'>Business Phone Number</Text>
               <Input name='lastName' p='5px' type='file' />

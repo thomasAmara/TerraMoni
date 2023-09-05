@@ -2,10 +2,18 @@ import { Box, SimpleGrid, Wrap, Input, Text } from '@chakra-ui/react';
 import React from 'react';
 
 export default function DirectorDetails() {
+  const breakpoints = {
+    base: "0px",
+    sm: "320px",
+    md: "768px",
+    lg: "960px",
+    xl: "1200px",
+    "2xl": "1536px",
+  };
+  
   return (
-    <div>
       <Box>
-        <SimpleGrid minChildWidth='148px' width='100%' spacing='15px'>
+        <SimpleGrid minChildWidth={{md:'148px'}} width='100%'spacing='15px'>
           <Box>
             <Wrap>
               <Text color='#942F8B'>First Name</Text>
@@ -19,7 +27,7 @@ export default function DirectorDetails() {
             </Wrap>
           </Box>
         </SimpleGrid>
-        <SimpleGrid minChildWidth='148px' width='100%' spacing='15px'>
+        <SimpleGrid minChildWidth={{md:'148px'}} width='100%'spacing='15px'>
           <Box>
             <Wrap>
               <Text color='#942F8B'>Business Certificate</Text>
@@ -33,7 +41,7 @@ export default function DirectorDetails() {
             </Wrap>
           </Box>
         </SimpleGrid>
-        <SimpleGrid minChildWidth='148px' width='100%' spacing='15px'>
+        <SimpleGrid minChildWidth={{md:'148px'}} width='100%'spacing='15px'>
           <Box>
             <Wrap>
               <Text color='#942F8B'>Business Email</Text>
@@ -47,7 +55,7 @@ export default function DirectorDetails() {
             </Wrap>
           </Box>
         </SimpleGrid>
-        <SimpleGrid minChildWidth='120px' spacing='10px'>
+        <SimpleGrid minChildWidth={{md:'148px'}} width='100%'spacing='15px'>
           <Box>
             <Wrap>
               <Text color='#942F8B'>Phone Number</Text>
@@ -67,7 +75,7 @@ export default function DirectorDetails() {
             </Wrap>
           </Box>
         </SimpleGrid>
-        <SimpleGrid minChildWidth='120px' width='100%' spacing='10px'>
+        <SimpleGrid minChildWidth={{md:'148px'}} width='100%'spacing='15px'>
           <Box>
             <Wrap>
               <Text color='#942F8B'>Upload ID Document</Text>
@@ -109,6 +117,5 @@ export default function DirectorDetails() {
         </SimpleGrid> */}
         <Box></Box>
       </Box>
-    </div>
   );
 }
