@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Box, Button, Image, Text } from '@chakra-ui/react';
 import Logo from '../Assets/tspLogo.svg';
 // import Terra from '../Assets/Terrabg.svg';
-import HomeImage from '../Assets/homeImage.svg';
+import HomeImage from '../Assets/homeBackground.svg';
 import { useNavigate } from 'react-router-dom';
 // import Card from '../Assets/cardFrame.png';
 import Footer from '../Components/Footer';
@@ -12,8 +12,18 @@ import HelpSection from '../Components/HelpSection';
 // import { IoIosPerson } from 'react-icons/io';
 import Agent from '../Components/Agent';
 import FaqSection from '../Components/FaqSection';
+import { FaBars } from 'react-icons/fa';
+import { useMediaQuery } from '@chakra-ui/react';
 
 export default function Home() {
+  const [isToggleOpen, setIsToggleOpen] = useState(false);
+
+  const [isLessThan480] = useMediaQuery('(max-width: 480px)');
+
+  const handleToggleOpen = () => {
+    setIsToggleOpen(!isToggleOpen);
+  };
+
   const navigate = useNavigate();
   const handleOnClick = useCallback(
     () => navigate('/login', { replace: true }),
@@ -31,8 +41,8 @@ export default function Home() {
   );
 
   return (
-    <div>
-      <Box maxWidth='1440px' width='100%'>
+    <div style={{ width: '100%' }}>
+      <Box>
         <Box bg='#942F8B'>
           <Box
             display='flex'
@@ -46,8 +56,9 @@ export default function Home() {
             <Box>
               <Image src={Logo} />
             </Box>
+            {/* {isLessThan480 ? } */}
             <Box
-              display='flex'
+              display={isLessThan480 ? 'none' : 'flex'}
               justifyContent='space-between'
               flexDirection='row'
               color='#FFF'
@@ -55,6 +66,7 @@ export default function Home() {
               width='30%'
               // border='2px'
               alignItems='center'
+              className='Nav-menu'
             >
               <Text fontSize='16px' cursor='pointer' fontWeight='500'>
                 Home
@@ -66,6 +78,7 @@ export default function Home() {
                 FAQ
               </Text>
             </Box>
+            {/* <FaBars className='menuToggleBtn' onClick={handleToggleOpen} /> */}
             <Box display='flex' alignItems='center'>
               <Button
                 width='100%'
@@ -83,11 +96,11 @@ export default function Home() {
           backgroundImage={HomeImage}
           backgroundSize='cover'
           backgroundRepeat='no-repeat'
-          backgroundPosition='32% 43%'
+          // backgroundPosition='32% 43%'
           height='945px'
           width='100%'
           pt='7%'
-          px={['20px', '10px']}
+          px={['20px', '35px']}
         >
           <Box
             width='100%'
@@ -125,8 +138,9 @@ export default function Home() {
               <Box mt='5%' display='flex'>
                 <Button
                   width={['260px', '350px']}
-                  p={['5px', '']}
+                  p={['15px', '']}
                   fontSize='16px'
+                  borderRadius={['5px', '10px']}
                   height='70px'
                   _hover={{ bg: '#C296BE' }}
                   bg='#862E7E'
@@ -163,12 +177,12 @@ export default function Home() {
                 py='20px'
                 mt='20px'
                 borderRadius='24px'
-                width='100%'
                 boxShadow='2px 2px 1px 1px rgba(148, 47, 139, 0.1)'
-                minWidth={[null, '760px']}
+                maxWidth={[null, '460px', '760px']}
+                width={['100%', '100%', '120%']}
                 backgroundColor='#FFF'
                 display='flex'
-                flexDirection={['column', 'row']}
+                flexDirection={['column', 'column', 'row']}
               >
                 <Box
                   // width='50%'
