@@ -13,11 +13,11 @@ function App() {
       <Router>
         <Suspense fallback={null}>
           <Routes>
-            <Route exact path='/' element={<Home />} />
-            <Route exact path='/login' element={<Login />} />
-            <Route exact path='/register' element={<Register />} />
-            <Route exact path='/agent' element={<Agent />} />
-            <Route exact path='/coporate' element={<Coporate />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/agent' element={<Agent />} />
+            <Route path='/coporate' element={<Coporate />} />
           </Routes>
         </Suspense>
       </Router>
