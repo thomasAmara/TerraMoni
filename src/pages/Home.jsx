@@ -1,28 +1,19 @@
-import React, { useState, useCallback } from 'react';
+import React, {  useCallback } from 'react';
 import { Box, Button, Image, Text } from '@chakra-ui/react';
 import Logo from '../Assets/tspLogo.svg';
 // import Terra from '../Assets/Terrabg.svg';
 import HomeImage from '../Assets/homeBackground.svg';
 import { useNavigate } from 'react-router-dom';
-// import Card from '../Assets/cardFrame.png';
 import Footer from '../Components/Footer';
-// import { BsBriefcaseFill } from 'react-icons/bs';
 import { FaGooglePlay } from 'react-icons/fa';
 import HelpSection from '../Components/HelpSection';
-// import { IoIosPerson } from 'react-icons/io';
 import Agent from '../Components/Agent';
 import FaqSection from '../Components/FaqSection';
-import { FaBars } from 'react-icons/fa';
+
 import { useMediaQuery } from '@chakra-ui/react';
 
 export default function Home() {
-  const [isToggleOpen, setIsToggleOpen] = useState(false);
-
   const [isLessThan480] = useMediaQuery('(max-width: 480px)');
-
-  const handleToggleOpen = () => {
-    setIsToggleOpen(!isToggleOpen);
-  };
 
   const navigate = useNavigate();
   const handleOnClick = useCallback(
