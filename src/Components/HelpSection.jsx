@@ -16,16 +16,16 @@ export default function HelpSection() {
           display='flex'
           p='20px'
           justifyContent='center'
-          flexDirection={['column', 'row']}
+          flexDirection={['column', 'column', 'row']}
         >
-          <Box>
-            <Image src={Pana} alt='' />
+          <Box display='flex' alignItems='center' justifyContent='center'>
+            <Image width={['80%', '100%']} src={Pana} alt='' />
           </Box>
           <Box
             display='flex'
             // flexDirection='column'
             alignItems='center'
-            width='50%'
+            width={['100%', '50%']}
             mt={['4%', '0px']}
           >
             <Box>
@@ -57,7 +57,12 @@ export default function HelpSection() {
                   //   ml='-12%'
                 >
                   <FaGooglePlay size='32px' />
-                  <Box display='flex' alignItems='start' flexDirection='column'>
+                  <Box
+                    display='flex'
+                    ml='5%'
+                    alignItems='start'
+                    flexDirection='column'
+                  >
                     Get it on
                     <Text>Google Play</Text>
                   </Box>

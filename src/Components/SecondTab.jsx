@@ -1,6 +1,6 @@
 import { Box, Image, Text } from '@chakra-ui/react';
 import React from 'react';
-import Desola from '../Assets/dev.jpg';
+import Desola from '../Assets/deposit.png';
 
 export default function SecondTab() {
   return (
@@ -12,7 +12,7 @@ export default function SecondTab() {
           justifyContent='space-between'
           minwidth='300px'
           width='100%'
-          px='90px'
+          px={['40px', '90px']}
           py='35px'
           alignItems='center'
         >

@@ -1,4 +1,4 @@
-import { Box, Button, Image, Input, Text } from '@chakra-ui/react';
+import { Box, Button, Image, Input, Stack, Text } from '@chakra-ui/react';
 import React from 'react';
 import Tiktok from '../Assets/tiktokIcon.svg';
 import Facebook from '../Assets/facebookIcon.svg';
@@ -32,12 +32,13 @@ export default function Footer() {
               Subscribe to our newsletter
             </Text>
           </Box>
-          <Box mt='10px'>
+          <Box mt='15px'>
             <Input
               borderRadius='20px'
               placeholder='Enter your e-mail address'
               //   maxWidth='470px'
-              p='10px'
+              p='15px'
+              height='46px'
               width='100%'
             />
           </Box>
@@ -61,31 +62,33 @@ export default function Footer() {
           </Box>
         </Box>
         <Box mt='25px' width={['100%', '30%']}>
-          <Box textAlign='start'>
-            <Text color='#942F8B' fontSize='20px' fontWeight='600'>
-              company
-            </Text>
-          </Box>
-          <Box textAlign='start'>
-            <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
-              About Us
-            </Text>
-          </Box>
-          <Box textAlign='start'>
-            <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
-              Careers
-            </Text>
-          </Box>
-          <Box textAlign='start'>
-            <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
-              Blog
-            </Text>
-          </Box>
+          <Stack spacing='15px'>
+            <Box textAlign='start'>
+              <Text color='#942F8B' fontSize='20px' fontWeight='600'>
+                company
+              </Text>
+            </Box>
+            <Box textAlign='start'>
+              <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+                About Us
+              </Text>
+            </Box>
+            <Box textAlign='start'>
+              <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+                Careers
+              </Text>
+            </Box>
+            <Box textAlign='start'>
+              <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+                Blog
+              </Text>
+            </Box>
+          </Stack>
         </Box>
         <Box
           display='flex'
-          width={['100%', '40%']}
-          maxWidth='400px'
+          width={['100%', '60%']}
+          maxWidth='490px'
           mt='25px'
           flexDirection='column'
         >
@@ -100,18 +103,23 @@ export default function Footer() {
                   Business
                 </Text>
               </Box>
-
-              <Box textAlign='start'>
-                <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
-                  Individual Agent Registration
-                </Text>
-                <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
-                  Sole Proprietor Registration
-                </Text>
-                <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
-                  Corporate Registration
-                </Text>
-              </Box>
+              <Stack spacing='15px'>
+                <Box mt='15px' textAlign='start'>
+                  <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+                    Individual Agent Registration
+                  </Text>{' '}
+                </Box>{' '}
+                <Box textAlign='start'>
+                  <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+                    Sole Proprietor Registration
+                  </Text>
+                </Box>
+                <Box textAlign='start'>
+                  <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+                    Corporate Registration
+                  </Text>
+                </Box>
+              </Stack>
             </Box>
             <Box>
               <Box textAlign='start'>
@@ -119,14 +127,18 @@ export default function Footer() {
                   Safety
                 </Text>
               </Box>
-              <Box textAlign='start'>
-                <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
-                  Help Center
-                </Text>
-                <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
-                  Road Map
-                </Text>
-              </Box>
+              <Stack spacing='15px'>
+                <Box mt='15px' textAlign='start'>
+                  <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+                    Help Center
+                  </Text>
+                </Box>
+                <Box textAlign='start'>
+                  <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+                    Road Map
+                  </Text>
+                </Box>
+              </Stack>
             </Box>
           </Box>
           <Box
@@ -136,11 +148,11 @@ export default function Footer() {
             flexDirection='row'
           >
             <Box
-              p='10px'
+              p='15px'
               width='60px'
               height='60px'
               borderRadius='100%'
-              boxShadow='1px 1px 1px 1px rgba(0,0,0,0.50)'
+              boxShadow='0px 0px 5px 0px rgba(0,0,0,0.2)'
               justifyContent='center'
               display='flex'
               cursor='pointer'
@@ -148,11 +160,11 @@ export default function Footer() {
               <Image src={Facebook} />
             </Box>
             <Box
-              p='10px'
+              p='15px'
               width='60px'
               height='60px'
               borderRadius='100%'
-              boxShadow='1px 1px 1px 1px rgba(0,0,0,0.50)'
+              boxShadow='0px 0px 5px 0px rgba(0,0,0,0.2)'
               justifyContent='center'
               display='flex'
               cursor='pointer'
@@ -160,11 +172,11 @@ export default function Footer() {
               <Image src={Twitter} />
             </Box>
             <Box
-              p='10px'
+              p='15px'
               width='60px'
               height='60px'
               borderRadius='100%'
-              boxShadow='1px 1px 1px 1px rgba(0,0,0,0.50)'
+              boxShadow='0px 0px 5px 0px rgba(0,0,0,0.2)'
               justifyContent='center'
               display='flex'
               cursor='pointer'
@@ -172,11 +184,12 @@ export default function Footer() {
               <Image src={Instagram} />
             </Box>
             <Box
-              p='10px'
+              p='15px'
               width='60px'
               height='60px'
               borderRadius='100%'
-              boxShadow='1px 1px 1px 1px rgba(0,0,0,0.50)'
+              boxShadow='0px 0px 5px 0px rgba(0,0,0,0.2)'
+              // 0px 0px 5px 0px rgba(0,0,0,0.75)
               justifyContent='center'
               display='flex'
               cursor='pointer'
@@ -184,11 +197,11 @@ export default function Footer() {
               <Image src={Linkedin} />
             </Box>
             <Box
-              p='10px'
+              p='15px'
               width='60px'
               height='60px'
               borderRadius='100%'
-              boxShadow='1px 1px 1px 1px rgba(0,0,0,0.50)'
+              boxShadow='0px 0px 5px 0px rgba(0,0,0,0.2)'
               justifyContent='center'
               display='flex'
               cursor='pointer'

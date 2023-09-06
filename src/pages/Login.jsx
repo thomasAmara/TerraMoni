@@ -19,7 +19,7 @@ function Login() {
     <div>
       <Box
         display='flex'
-        flexDirection={['column', 'row']} 
+        flexDirection={['column', 'row']}
         minHeight='100vh'
         width='100%'
         maxWidth='1440px'
@@ -38,7 +38,7 @@ function Login() {
           pb={['20px', '0']}
         >
           <Box
-            display={['block', 'flex']} 
+            display={['block', 'flex']}
             flexDirection='column'
             justifyContent='center'
             width='100%'
@@ -106,15 +106,33 @@ function Login() {
                   <Input mt='20px' type='password' name='password' />
 
                   <Box maxWidth='600px' width='100%' mt={['10px', '20px']}>
-              <Button width='100%' colorScheme='pink'>
-                Login
-              </Button>
-              <p style={{ marginTop: '10px', textAlign: 'left', fontSize: '12px'}}>Don't have an account yet? Register <Link to="/register"> <span style={{ color: '#942F8B', cursor: 'pointer'}}>Here</span></Link></p>
-            </Box>
+                    <Button
+                      width='100%'
+                      bg='#942F8B'
+                      _hover={{ bg: '#C296BE' }}
+                      color='#FFF'
+                    >
+                      Login
+                    </Button>
+                    <p
+                      style={{
+                        marginTop: '10px',
+                        textAlign: 'left',
+                        fontSize: '12px',
+                      }}
+                    >
+                      Don't have an account yet? Register{' '}
+                      <Link to='/register'>
+                        {' '}
+                        <span style={{ color: '#942F8B', cursor: 'pointer' }}>
+                          Here
+                        </span>
+                      </Link>
+                    </p>
+                  </Box>
                 </Form>
               </Formik>
             </Box>
-            
           </Box>
         </Box>
 
@@ -123,12 +141,12 @@ function Login() {
           p={['20px', '40px']}
           width='100%'
           display={['none', 'flex']}
-          height={['auto', '100vh']} 
+          height={['auto', '100vh']}
           backgroundSize='cover'
           maxWidth='580px'
         >
           <Box
-            display={['none', 'flex']} 
+            display={['none', 'flex']}
             width='100%'
             height='100%'
             justifyContent='center'

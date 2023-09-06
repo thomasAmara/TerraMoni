@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { BiMinus } from 'react-icons/bi';
 import { BiPlus } from 'react-icons/bi';
 import POS from '../Assets/Terrabg.png';
+import { useMediaQuery } from '@chakra-ui/react';
 
 export default function FaqSection() {
   const [active, setActive] = useState(false);
@@ -10,6 +11,8 @@ export default function FaqSection() {
   const [active2, setActive2] = useState(false);
   const [active3, setActive3] = useState(false);
   const [active4, setActive4] = useState(false);
+
+  const [isLessThan480] = useMediaQuery('(max-width: 480px)');
 
   return (
     <div>
@@ -34,14 +37,20 @@ export default function FaqSection() {
         </Box>
 
         <Box
+          mt='3%'
           display='flex'
           flexDirection={['column-reverse', 'row']}
           alignItems='center'
           justifyContent='space-between'
+          p={isLessThan480 ? '20px' : null}
         >
           <Box border='3px' width='1%'></Box>
-          <Box width={['100%', '50%']} px='15px'>
-            <Stack spacing='55px'>
+          <Box
+            width={['100%', '50%']}
+            px={['0px', '15px']}
+            marginTop={isLessThan480 ? '20px' : null}
+          >
+            <Stack spacing='55px' width={isLessThan480 ? '100%' : null}>
               <Box>
                 <Box
                   display='flex'
@@ -53,10 +62,18 @@ export default function FaqSection() {
                   pl='10px'
                   py='2px'
                 >
-                  <Text fontSize='24px' fontWeight='600' color='#152329'>
+                  <Text
+                    fontSize={['14px', '24px']}
+                    fontWeight='600'
+                    color='#152329'
+                  >
                     Q1 What is a Terminal
                   </Text>
-                  <Button bg='#942F8B' onClick={() => setActive(!active)}>
+                  <Button
+                    bg='#942F8B'
+                    _hover={{ bg: '#C296BE' }}
+                    onClick={() => setActive(!active)}
+                  >
                     {active === true ? (
                       <BiMinus color='#FFF' fontSize='32px' />
                     ) : (
@@ -85,10 +102,18 @@ export default function FaqSection() {
                   bg='#DEC0DC'
                   pl='10px'
                 >
-                  <Text fontSize='24px' fontWeight='600' color='#152329'>
+                  <Text
+                    fontSize={['14px', '24px']}
+                    fontWeight='600'
+                    color='#152329'
+                  >
                     Q2 How can I request for a POS
                   </Text>
-                  <Button bg='#942F8B' onClick={() => setActive1(!active1)}>
+                  <Button
+                    bg='#942F8B'
+                    _hover={{ bg: '#C296BE' }}
+                    onClick={() => setActive1(!active1)}
+                  >
                     {active1 === true ? (
                       <BiMinus color='#FFF' fontSize='32px' />
                     ) : (
@@ -117,10 +142,18 @@ export default function FaqSection() {
                   bg='#DEC0DC'
                   pl='10px'
                 >
-                  <Text fontSize='24px' fontWeight='600' color='#152329'>
+                  <Text
+                    fontSize={['14px', '24px']}
+                    fontWeight='600'
+                    color='#152329'
+                  >
                     Q3 What is a Terminal
                   </Text>
-                  <Button bg='#942F8B' onClick={() => setActive2(!active2)}>
+                  <Button
+                    bg='#942F8B'
+                    _hover={{ bg: '#C296BE' }}
+                    onClick={() => setActive2(!active2)}
+                  >
                     {active2 === true ? (
                       <BiMinus color='#FFF' fontSize='32px' />
                     ) : (
@@ -149,10 +182,18 @@ export default function FaqSection() {
                   bg='#DEC0DC'
                   pl='10px'
                 >
-                  <Text fontSize='24px' fontWeight='600' color='#152329'>
+                  <Text
+                    fontSize={['14px', '24px']}
+                    fontWeight='600'
+                    color='#152329'
+                  >
                     Q4 Is Terra Moni Licensed
                   </Text>
-                  <Button bg='#942F8B' onClick={() => setActive3(!active3)}>
+                  <Button
+                    bg='#942F8B'
+                    _hover={{ bg: '#C296BE' }}
+                    onClick={() => setActive3(!active3)}
+                  >
                     {active3 === true ? (
                       <BiMinus color='#FFF' fontSize='32px' />
                     ) : (
@@ -181,10 +222,18 @@ export default function FaqSection() {
                   bg='#DEC0DC'
                   pl='10px'
                 >
-                  <Text fontSize='24px' fontWeight='600' color='#152329'>
-                    Q5 How much does a POS Terminal cost
+                  <Text
+                    fontSize={['14px', '24px']}
+                    fontWeight='600'
+                    color='#152329'
+                  >
+                    Q5 What is the cost for POS
                   </Text>
-                  <Button bg='#942F8B' onClick={() => setActive4(!active4)}>
+                  <Button
+                    bg='#942F8B'
+                    _hover={{ bg: '#C296BE' }}
+                    onClick={() => setActive4(!active4)}
+                  >
                     {active4 === true ? (
                       <BiMinus color='#FFF' fontSize='32px' />
                     ) : (

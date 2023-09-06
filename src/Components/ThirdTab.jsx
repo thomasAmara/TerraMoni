@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Image, Text } from '@chakra-ui/react';
-import Desola from '../Assets/dev.jpg';
+import Desola from '../Assets/corporate2.png';
 
 export default function ThirdTab() {
   return (
@@ -12,7 +12,7 @@ export default function ThirdTab() {
           justifyContent='space-between'
           minwidth='700px'
           width='100%'
-          px='90px'
+          px={['40px', '90px']}
           py='35px'
         >
           <Box
