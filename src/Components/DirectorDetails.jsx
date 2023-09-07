@@ -2,14 +2,14 @@ import { Box, SimpleGrid, Wrap, Input, Text } from '@chakra-ui/react';
 import React from 'react';
 
 export default function DirectorDetails() {
-  const breakpoints = {
-    base: "0px",
-    sm: "320px",
-    md: "768px",
-    lg: "960px",
-    xl: "1200px",
-    "2xl": "1536px",
-  };
+  // const breakpoints = {
+  //   base: "0px",
+  //   sm: "320px",
+  //   md: "768px",
+  //   lg: "960px",
+  //   xl: "1200px",
+  //   "2xl": "1536px",
+  // };
   
   return (
       <Box>
