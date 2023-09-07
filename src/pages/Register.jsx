@@ -11,7 +11,7 @@ export default function Register() {
         flexDirection='row'
         height='100vh'
         width='100%'
-        maxWidth='1440px'
+        // maxWidth='1440px'
       >
         <Box
           bgImage={Bg}
@@ -19,12 +19,12 @@ export default function Register() {
           width='100%'
           height='100vh'
           flexDirection='column'
-          alignItems='center'
-          justifyContent='center' 
+          alignItems={['center', 'center', 'center' ]}
+          justifyContent={['center', 'center', 'center' ]}
           backgroundPosition='100% 100%'
           backgroundSize='cover'
           maxWidth={['100%', '580px']}
-          display={['none', 'flex']}
+          display={['none', 'none', 'flex']}
         >
             <Text
             mb='15px'
@@ -42,6 +42,7 @@ export default function Register() {
           display='flex'
           alignItems='center'
           px={['20px', '30px']} 
+          mx='auto'
           // backgroundColor='skyblue'
         >
           <Box width='100%' margin={['0 auto', null, '0']} maxWidth={['100%', '600px']}>
@@ -59,7 +60,7 @@ export default function Register() {
             display='flex'
               // alignItems='center'
               >
-            <Checkbox />
+            <Checkbox/>
               <Text marginLeft='10px'
                 fontSize='12px'
                 textAlign='left'
@@ -69,6 +70,12 @@ export default function Register() {
 </Box>
             <Box mt={['20px', '25px']}>
               <Button width='100%' colorScheme='pink'>Sign Up</Button>
+              <Text
+              textAlign='left'
+              display='block'
+              mt='10px'
+              fontSize='12px'
+              >Already have an account? <Link to="/login"><span style={{ color: '#942F8B', cursor: 'pointer'}}>Sign in</span></Link></Text>
             </Box>
           </Box>
         </Box>

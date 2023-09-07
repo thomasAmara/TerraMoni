@@ -59,6 +59,7 @@ function Login() {
               width='100%'
               maxWidth='510px'
               justifyContent='space-between'
+              gap={['15px', '15px', '15px']}
             >
               <Box
                 display='flex'
@@ -69,6 +70,7 @@ function Login() {
                 width='100%'
                 height='52px'
                 bgColor='#F7F7F7'
+                // gap={['15px', '15px', '15px']}
                 margin={['5px 0', '10px 0']}
               >
                 <Image src={Google} alt='google' />
@@ -82,7 +84,7 @@ function Login() {
                 width='100%'
                 height='52px'
                 bgColor='#F7F7F7'
-                margin={['5px 0', '0 10px']}
+                // margin={['5px 0', '0 10px']}
               >
                 <Image src={Meta} alt='meta' />
               </Box>
@@ -122,7 +124,7 @@ function Login() {
           bgImage={Bg}
           p={['20px', '40px']}
           width='100%'
-          display={['none', 'flex']}
+          display={['none', 'none', 'flex']}
           height={['auto', '100vh']} 
           backgroundSize='cover'
           maxWidth='580px'
