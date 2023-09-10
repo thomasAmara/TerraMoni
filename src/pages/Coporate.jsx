@@ -55,9 +55,8 @@ export default function Coporate() {
             alignItems='center'
             padding={['50px 15px', '0 0']}
             flexWrap={['wrap', 'wrap']}
-            backgroundColor='beige'
         >
-          <Box width='100%' margin='0 auto' maxWidth='600px' backgroundColor='red'>
+          <Box width='100%' margin='0 auto' maxWidth='600px'>
             <Box>
               <Text
                 textTransform='uppercase'
@@ -90,7 +89,7 @@ export default function Coporate() {
               className={'stepper'}
               stepClassName={'stepper__step'}
             />
-            <Box backgroundColor='green'
+            <Box
               display={{base:'flex', md:'none', lg:'block'}}
               flexWrap={{base:'wrap', md:'none', lg:'block'}}
               width={{base:'100%', md:'100%', lg:'100%'}}
