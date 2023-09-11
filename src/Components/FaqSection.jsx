@@ -82,7 +82,7 @@ export default function FaqSection() {
                   </Button>
                 </Box>
                 {active === true ? (
-                  <Box px='10px'>
+                  <Box px='10px' border='2px'>
                     <Text textAlign='start'>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
