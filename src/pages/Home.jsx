@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { Box, Button, Image, Text } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 import Logo from '../Assets/tspLogo.svg';
 // import Terra from '../Assets/Terrabg.svg';
 import HomeImage from '../Assets/homeImage.svg';
@@ -44,7 +45,7 @@ export default function Home() {
             margin='0 auto'
           >
             <Box>
-              <Image src={Logo} />
+             <Link to='/'><Image src={Logo} /></Link>
             </Box>
             <Box
               display='flex'
