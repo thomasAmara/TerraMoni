@@ -48,6 +48,8 @@ export default function FaqSection() {
           <Box
             width={['100%', '50%']}
             px={['0px', '15px']}
+            maxHeight='420px'
+            height='100%'
             marginTop={isLessThan480 ? '20px' : null}
           >
             <Stack spacing='55px' width={isLessThan480 ? '100%' : null}>
@@ -257,7 +259,7 @@ export default function FaqSection() {
           <Box width={['100%', '50%']}>
             <Image
               width={['320px', '620px']}
-              height={['240px', '420px']}
+              // height={['240px', '420px']}
               src={POS}
             />
           </Box>

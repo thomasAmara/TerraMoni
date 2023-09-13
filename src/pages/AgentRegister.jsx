@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Wrap,
-  Input,
-  SimpleGrid,
-  Text,
-  Select,
-} from '@chakra-ui/react';
+import { Box, SimpleGrid, Text } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import Bg from '../Assets/register.png';
 import { Link } from 'react-router-dom';
@@ -24,7 +16,6 @@ export default function AgentRegister() {
   };
 
   const handlePage2 = () => {
-    console.log('page 2');
     setActivePage('page2');
   };
   return (
@@ -36,7 +27,6 @@ export default function AgentRegister() {
         px={isLessThan480 ? '15px' : '0px'}
         height={isLessThan480 ? '100%' : '100vh'}
         width='100%'
-        border='2px'
       >
         <Box
           display={isLessThan480 ? 'none' : 'flex'}
@@ -135,9 +125,9 @@ export default function AgentRegister() {
             </Box>
             <Box className='tab'>
               {activePage === 'page1' ? (
-                <Proprietor />
-              ) : activePage === 'page2' ? (
                 <IndividualAgent />
+              ) : activePage === 'page2' ? (
+                <Proprietor />
               ) : null}
             </Box>
           </Box>

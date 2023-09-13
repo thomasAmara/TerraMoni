@@ -13,9 +13,8 @@ export default function Proprietor() {
   return (
     <div>
       <Box>
-        <Text fontSize='24px'>Proprietor</Text>
         <Box>
-        <Box
+          <Box
             mt='15px'
             width='100%'
             display='flex'
