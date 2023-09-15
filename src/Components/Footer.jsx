@@ -12,13 +12,14 @@ export default function Footer() {
     <div>
       <Box
         display='flex'
-        width='100%'
-        maxWidth='1340px'
+        width='90%'
+        // maxWidth='1340px'
         margin='0 auto'
         flexDirection={['column', 'row']}
         justifyContent='space-between'
-        p='20px'
+        // p='20px'
         pb='5%'
+        gap='20px'
         // border='2px'
       >
         <Box mt='25px' width={['100%', '35%']}>
@@ -63,21 +64,27 @@ export default function Footer() {
         <Box mt='25px' width={['100%', '30%']}>
           <Box textAlign='start'>
             <Text color='#942F8B' fontSize='20px' fontWeight='600'>
-              company
+              Company
             </Text>
           </Box>
           <Box textAlign='start'>
-            <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+            <Text color='#7A7A7A' 
+            fontSize={['14px', '16px']}
+            fontWeight='400'>
               About Us
             </Text>
           </Box>
           <Box textAlign='start'>
-            <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+            <Text color='#7A7A7A' 
+            fontSize={['14px', '16px']}
+            fontWeight='400'>
               Careers
             </Text>
           </Box>
           <Box textAlign='start'>
-            <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+            <Text color='#7A7A7A' 
+            fontSize={['14px', '16px']}
+            fontWeight='400'>
               Blog
             </Text>
           </Box>
@@ -102,13 +109,19 @@ export default function Footer() {
               </Box>
 
               <Box textAlign='start'>
-                <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+                <Text color='#7A7A7A' 
+                fontSize={['14px', '16px']}
+                fontWeight='400'>
                   Individual Agent Registration
                 </Text>
-                <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+                <Text color='#7A7A7A'
+                fontSize={['14px', '16px']}
+                fontWeight='400'>
                   Sole Proprietor Registration
                 </Text>
-                <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+                <Text color='#7A7A7A' 
+                fontSize={['14px', '16px']}
+                fontWeight='400'>
                   Corporate Registration
                 </Text>
               </Box>
@@ -120,26 +133,32 @@ export default function Footer() {
                 </Text>
               </Box>
               <Box textAlign='start'>
-                <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+                <Text color='#7A7A7A'
+                fontSize={['14px', '16px']}
+                fontWeight='400'>
                   Help Center
                 </Text>
-                <Text color='#7A7A7A' fontSize='16px' fontWeight='400'>
+                <Text color='#7A7A7A' 
+                fontSize={['14px', '16px']}
+                fontWeight='400'>
                   Road Map
                 </Text>
               </Box>
             </Box>
           </Box>
+
           <Box
             display='flex'
             justifyContent='space-between'
             mt='30px'
             flexDirection='row'
+            gap='15px'
           >
             <Box
               p='10px'
               width='60px'
               height='60px'
-              borderRadius='100%'
+              borderRadius='50%'
               boxShadow='1px 1px 1px 1px rgba(0,0,0,0.50)'
               justifyContent='center'
               display='flex'
@@ -151,7 +170,7 @@ export default function Footer() {
               p='10px'
               width='60px'
               height='60px'
-              borderRadius='100%'
+              borderRadius='50%'
               boxShadow='1px 1px 1px 1px rgba(0,0,0,0.50)'
               justifyContent='center'
               display='flex'
@@ -163,7 +182,7 @@ export default function Footer() {
               p='10px'
               width='60px'
               height='60px'
-              borderRadius='100%'
+              borderRadius='50%'
               boxShadow='1px 1px 1px 1px rgba(0,0,0,0.50)'
               justifyContent='center'
               display='flex'
@@ -175,7 +194,7 @@ export default function Footer() {
               p='10px'
               width='60px'
               height='60px'
-              borderRadius='100%'
+              borderRadius='50%'
               boxShadow='1px 1px 1px 1px rgba(0,0,0,0.50)'
               justifyContent='center'
               display='flex'
@@ -187,7 +206,7 @@ export default function Footer() {
               p='10px'
               width='60px'
               height='60px'
-              borderRadius='100%'
+              borderRadius='50%'
               boxShadow='1px 1px 1px 1px rgba(0,0,0,0.50)'
               justifyContent='center'
               display='flex'

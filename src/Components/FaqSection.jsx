@@ -13,7 +13,11 @@ export default function FaqSection() {
 
   return (
     <div>
-      <Box margin='0 auto' width='90%' px='30px' py='25px'>
+      <Box 
+      margin='0 auto' 
+      width='90%'  py='25px'
+      px={['0', '25px']}
+      >
         <Box display='flex' flexDirection='column' mt='4%'>
           <Box color='#152329'>
             <Text fontWeight='700' textAlign='start' fontSize='32px'>
