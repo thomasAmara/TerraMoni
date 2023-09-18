@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useMediaQuery } from '@chakra-ui/react';
 import IndividualAgent from '../Components/IndividualAgent';
 import Proprietor from '../Components/Proprietor';
+import { FcHome } from 'react-icons/fc';
 
 export default function AgentRegister() {
   const [activePage, setActivePage] = useState('page1');
@@ -66,11 +67,12 @@ export default function AgentRegister() {
             </Box>
 
             <Box>
-              <Box>
+              <Box display='flex' justifyContent='center'>
                 <Link to='/'>
-                  <Text fontSize='24px' fontWeight='600'>
+                  <FcHome size={42} />
+                  {/* <Text fontSize='24px' fontWeight='600'>
                     Home
-                  </Text>
+                  </Text> */}
                 </Link>
               </Box>
               <SimpleGrid>
