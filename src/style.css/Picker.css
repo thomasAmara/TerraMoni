@@ -1,0 +1,28 @@
+.picker {
+    grid-column: 5/10;
+    grid-row: 2/4;
+    background: cornflowerblue;
+  
+    .input {
+        text-align: center;
+        border: none;
+        background-color: transparent;
+        border-bottom: 2px solid #E3B924;
+      }
+  }
+
+  .react-datepicker-wrapper {
+ width: 100%;
+ border: 1px solid  #d3d3d3;
+ padding: 5px;
+ border-radius: 5px;
+  }
+  .react-datepicker__input-container {
+    /* border: 2px solid blue; */
+    display: flex;
+
+  }
+ 
+  .react-datepicker-ignore-onclickoutside{
+    color:#191507
+  }
