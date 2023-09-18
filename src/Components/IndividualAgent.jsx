@@ -144,7 +144,7 @@ export default function IndividualAgent() {
               first_name: '',
               mid_name: '',
               last_name: '',
-              dob: moment(new Date()).format('YYYY-MM-DD'),
+              dob: new Date(),
               phone: '',
               email: '',
               gender: '',
