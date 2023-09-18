@@ -3,20 +3,21 @@ import {
   Text,
   SimpleGrid,
   Wrap,
-  Input,
   Select,
   Button,
   useToast,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import CustomInput from './CustomInput';
-import { Formik, Form } from 'formik';
+import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import DatePickerField from './DatePicker';
+import moment from 'moment';
 import { States } from './StateArray';
+import '../style.css/Picker.css';
 
 export default function IndividualAgent() {
   const [loader, setLoader] = useState(false);
@@ -27,36 +28,80 @@ export default function IndividualAgent() {
   const phoneRegExp = /^([0](7|8|9){1})(0|1){1}[0-9]{8}$/;
 
   const validateForm = Yup.object().shape({
-    first_Name: Yup.string().min(4, 'Too Short!').required('Required'),
-    last_Name: Yup.string().min(4, 'Too Short!').required('Required'),
-    phoneNumber: Yup.string()
+    first_name: Yup.string().min(4, 'Too Short!').required('Required'),
+    last_name: Yup.string().min(4, 'Too Short!').required('Required'),
+    phone: Yup.string()
       .matches(phoneRegExp, 'Enter a Valid Nigeria Phone number')
       .required('Required'),
     email: Yup.string().email('Invalid email').required('Required'),
-    passportImage: Yup.mixed()
-      //   .test({
-      //     message: 'Please provide a supported file type',
-      //     test: (file, context) => {
-      //       const isValid = ['png', 'pdf', 'jpeg'].includes(
-      //         getExtension(file?.name)
-      //       );
-      //       if (!isValid) context?.createError();
-      //       return isValid;
-      //     },
-      //   })
-      .test({
-        message: `File is too big, can't exceed ${2} Mb`,
-        test: (file) => {
-          const isValid = file?.size < 2000;
-          return isValid;
-        },
+    gender: Yup.string().required(),
+    dob: Yup.date()
+      .required('Date of birth is required')
+      .test('age', 'You must be at least 18 years old', (value) => {
+        const minAgeDate = new Date();
+        minAgeDate.setFullYear(minAgeDate.getFullYear() - 18);
+        return value <= minAgeDate;
       }),
+    passport: Yup.mixed()
+      .test(
+        'fileType',
+        'Invalid file type. Please select an image (JPEG or PNG).',
+        (value) => {
+          if (!value) return true; // Allow empty file uploads
+          return ['image/jpeg', 'image/png', 'image/jpg'].includes(value.type);
+        }
+      )
+      .test('fileSize', 'File is too big, must be less than 3 MB', (value) => {
+        if (!value) return true; // Field is not required, so allow empty values
+        return value.size <= 2 * 1024 * 1024; // 3 MB in bytes
+      })
+      .required('Please upload a passport photo'),
+    address_proff: Yup.mixed()
+      .test(
+        'fileType',
+        'Invalid file type. Please select an image (JPEG, JPG or PNG).',
+        (value) => {
+          if (!value) return true; // Allow empty file uploads
+          return ['image/jpeg', 'image/png', 'image/jpg'].includes(value.type);
+        }
+      )
+      .test('fileSize', 'File is too big, must be less than 3 MB', (value) => {
+        if (!value) return true;
+        return value.size <= 2 * 1024 * 1024; // 2 MB in bytes
+      })
+      .required('address required'),
+    BVN: Yup.string().required('BVN Required'),
+    doc_issue_date: Yup.string().required(),
+    doc_exp_date: Yup.string().required('Required'),
+    bank_name: Yup.string().required('Required'),
+    bank_acc_no: Yup.string().required('Required'),
+    lga: Yup.string().required('Required'),
+    location: Yup.string().required('Required'),
+    country: Yup.string().required('Required'),
+    tax_id: Yup.string().required('Tax ID Required'),
+    doc_no: Yup.string().required('Required'),
+    doc_type: Yup.string().required('Select a valid Document type'),
+    agentCode: Yup.string().required('Agent code is required'),
+    docimage: Yup.mixed()
+      .test(
+        'fileType',
+        'Invalid file type. Please select an image (JPEG or PNG).',
+        (value) => {
+          if (!value) return true; // Allow empty file uploads
+          return ['image/jpeg', 'image/png', 'image/jpg'].includes(value.type);
+        }
+      )
+      .test('fileSize', 'File is too big, must be less than 3 MB', (value) => {
+        if (!value) return true; // Field is not required, so allow empty values
+        return value.size <= 2 * 1024 * 1024; // 3 MB in bytes
+      })
+      .required('Please upload a passport photo'),
   });
 
   const Url = 'https://portal.datacraftgarage.com/api/RegisterAgents';
 
   const getSubmit = async (values) => {
-    console.log('my data', values);
+    console.log('my data', values, error);
     setLoader(true);
     try {
       const response = await axios.post(Url, values, {
@@ -81,16 +126,13 @@ export default function IndividualAgent() {
       toast({
         position: 'top-right',
         title: 'Error.',
-        // description: error.response.data.message,
+        description: error.response.data.message || 'An error occured',
         status: 'error',
         duration: 9000,
         isClosable: true,
       });
       setLoader(false);
     }
-
-    // setFormErrors(validate(formValues));
-    // setIsSubmitting(true);
   };
 
   return (
@@ -102,30 +144,39 @@ export default function IndividualAgent() {
               first_name: '',
               mid_name: '',
               last_name: '',
-              dob: '',
+              dob: moment(new Date()).format('YYYY-MM-DD'),
               phone: '',
               email: '',
-              gender: 'male',
+              gender: '',
               agent_type: 1,
               agent_role: 'agent',
+              lga: '',
               location: '',
-              passport: '',
+              address_proff: null,
+              passport: null,
               country: '',
               BVN: '',
               registration_date: '',
               tax_id: '',
               doc_no: '',
-              doc_type: 'NIN',
-              docimage: '',
-              doc_issue_date: '',
-              doc_exp_date: '',
+              doc_type: '',
+              docimage: null,
+              doc_issue_date: moment(new Date()).format('YYYY-MM-DD'),
+              doc_exp_date: moment(new Date()).format('YYYY-MM-DD'),
               bank_name: '',
               bank_acc_no: '',
+              agentCode: '',
             }}
             validationSchema={validateForm}
             onSubmit={getSubmit}
           >
-            {({ values, errors, isSubmitting, handleChange }) => (
+            {({
+              values,
+              errors,
+              isSubmitting,
+              handleChange,
+              setFieldValue,
+            }) => (
               <Form>
                 <Box
                   mt='15px'
@@ -148,41 +199,86 @@ export default function IndividualAgent() {
                       <Wrap>
                         <Text color='#942F8B'>First Name</Text>
                         <CustomInput name='first_name' />
+                        <ErrorMessage
+                          name='first_name'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                     <Box>
                       <Wrap>
                         <Text color='#942F8B'>Middle Name</Text>
-                        <CustomInput name='middle_name' />
+                        <CustomInput name='mid_name' />
                       </Wrap>
                     </Box>
                   </SimpleGrid>
-                  <SimpleGrid minChildWidth='148px' width='100%' spacing='15px'>
+                  <SimpleGrid
+                    minChildWidth='148px'
+                    width='100%'
+                    mt='10px'
+                    spacing='15px'
+                  >
                     <Box>
                       <Wrap>
                         <Text color='#942F8B'>Last Name</Text>
                         <CustomInput name='last_name' />
+                        <ErrorMessage
+                          name='last_name'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                     <Box>
                       <Wrap>
                         <Text color='#942F8B'>Date of Birth</Text>
-                        {/* <DatePicker /> */}
-                        <CustomInput name='dob' />
+                        <DatePickerField
+                          name='dob'
+                          format='YYYY-MM-DD'
+                          // value={
+                          //   moment(values.dob).format('YYYY-MM-DD') ||
+                          //   moment(new Date().format('YYYY-MM-DD'))
+                          // }
+                          // value={values.dob}
+                          showYearDropdown
+                          scrollableYearDropdown
+                          yearDropdownItemNumber={50}
+                        />
+                        <ErrorMessage
+                          name='dob'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                   </SimpleGrid>
-                  <SimpleGrid minChildWidth='148px' width='100%' spacing='15px'>
+                  <SimpleGrid
+                    minChildWidth='148px'
+                    width='100%'
+                    mt='10px'
+                    spacing='15px'
+                  >
                     <Box>
                       <Wrap>
                         <Text color='#942F8B'>Phone Number</Text>
                         <CustomInput name='phone' />
+                        <ErrorMessage
+                          name='phone'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                     <Box>
                       <Wrap>
                         <Text color='#942F8B'>Email Address</Text>
                         <CustomInput name='email' />
+                        <ErrorMessage
+                          name='email'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                   </SimpleGrid>
@@ -209,6 +305,11 @@ export default function IndividualAgent() {
                       <Wrap>
                         <Text color='#942F8B'>Location/City</Text>
                         <CustomInput name='location' />
+                        <ErrorMessage
+                          name='location'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                   </SimpleGrid>
@@ -224,6 +325,11 @@ export default function IndividualAgent() {
                         <Wrap>
                           <Text color='#942F8B'>Local Government Area</Text>
                           <CustomInput name='lga' />
+                          <ErrorMessage
+                            name='lga'
+                            component='div'
+                            style={error}
+                          />
                         </Wrap>
                       </Wrap>
                     </Box>
@@ -257,10 +363,17 @@ export default function IndividualAgent() {
                           <option value='Nigeria'>Nigeria</option>
                           <option value='Kenya'>Kenya</option>
                         </Select>
+                        <ErrorMessage
+                          name='country'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                   </SimpleGrid>
                 </Box>
+
+                {/* Documents Section */}
                 <Box mt='25px'>
                   <Text textAlign='start' color='#545454' fontSize='18px'>
                     Documents
@@ -275,12 +388,22 @@ export default function IndividualAgent() {
                       <Wrap>
                         <Text color='#942F8B'>Passport Photo</Text>
                         <CustomInput name='passport' p='3px' type='file' />
+                        <ErrorMessage
+                          name='passport'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                     <Box>
                       <Wrap>
                         <Text color='#942F8B'>Prof of Address</Text>
                         <CustomInput name='address_proff' p='3px' type='file' />
+                        <ErrorMessage
+                          name='address_proff'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                   </SimpleGrid>
@@ -303,18 +426,33 @@ export default function IndividualAgent() {
                           <option value='nin'>NIN</option>
                           <option value='pvt'>PVT</option>
                         </Select>
+                        <ErrorMessage
+                          name='doc_type'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                     <Box>
                       <Wrap>
                         <Text color='#942F8B'>Document Number</Text>
                         <CustomInput name='doc_no' />
+                        <ErrorMessage
+                          name='doc_no'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                     <Box>
                       <Wrap>
                         <Text color='#942F8B'>Document Image</Text>
                         <CustomInput name='docimage' p='3px' type='file' />
+                        <ErrorMessage
+                          name='docimage'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                   </SimpleGrid>
@@ -328,19 +466,37 @@ export default function IndividualAgent() {
                     <Box>
                       <Wrap>
                         <Text color='#942F8B'>Document Issue Date</Text>
-                        {/* <DatePicker /> */}
-                        <CustomInput name='doc_exp_date' />
+                        <DatePickerField
+                          name='doc_issue_date'
+                          format='YYYY-MM-DD'
+                          showYearDropdown
+                          scrollableYearDropdown
+                          yearDropdownItemNumber={50}
+                          value={moment(values.doc_issue_date).format(
+                            'YYYY-MM-DD'
+                          )}
+                        />
                       </Wrap>
                     </Box>
                     <Box>
                       <Wrap>
                         <Text color='#942F8B'>Document Expiry Date</Text>
-                        <DatePicker />
-                        <CustomInput name='doc_issue_date' />
+                        <DatePickerField
+                          name='doc_exp_date'
+                          format='YYYY-MM-DD'
+                          showYearDropdown
+                          scrollableYearDropdown
+                          yearDropdownItemNumber={50}
+                          value={moment(values.doc_exp_date).format(
+                            'YYYY-MM-DD'
+                          )}
+                        />
                       </Wrap>
                     </Box>
                   </SimpleGrid>
                 </Box>
+
+                {/* Banking Details Section */}
                 <Box mt='25px'>
                   <Text textAlign='start' color='#545454' fontSize='18px'>
                     Banking Details
@@ -355,12 +511,22 @@ export default function IndividualAgent() {
                       <Wrap>
                         <Text color='#942F8B'>Bank Name</Text>
                         <CustomInput name='bank_name' />
+                        <ErrorMessage
+                          name='bank_name'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                     <Box>
                       <Wrap>
                         <Text color='#942F8B'>Bank Account Number</Text>
                         <CustomInput name='bank_acc_no' />
+                        <ErrorMessage
+                          name='bank_acc_no'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                   </SimpleGrid>
@@ -374,16 +540,28 @@ export default function IndividualAgent() {
                       <Wrap>
                         <Text color='#942F8B'>BVN</Text>
                         <CustomInput name='BVN' />
+                        <ErrorMessage
+                          name='BVN'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                     <Box>
                       <Wrap>
                         <Text color='#942F8B'>TAX ID</Text>
                         <CustomInput name='tax_id' />
+                        <ErrorMessage
+                          name='tax_id'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                   </SimpleGrid>
                 </Box>
+
+                {/* Business Section */}
                 <Box mt='25px'>
                   <Text textAlign='start' color='#545454' fontSize='18px'>
                     Business
@@ -404,6 +582,11 @@ export default function IndividualAgent() {
                       <Wrap>
                         <Text color='#942F8B'>Agent Code </Text>
                         <CustomInput name='agentCode' />
+                        <ErrorMessage
+                          name='agentCode'
+                          component='div'
+                          style={error}
+                        />
                       </Wrap>
                     </Box>
                   </SimpleGrid>
@@ -442,6 +625,7 @@ export default function IndividualAgent() {
                     //   Array.isArray(errors) ||
                     //   Object.values(errors).toString() !== ''
                     // }
+                    // onClick={console.log('values', values, errors)}
                     onClick={() => getSubmit(values)}
                   >
                     Submit
@@ -455,3 +639,8 @@ export default function IndividualAgent() {
     </div>
   );
 }
+
+const error = {
+  color: 'red',
+  fontSize: '12px',
+};
