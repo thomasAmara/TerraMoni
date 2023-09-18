@@ -1,4 +1,4 @@
-import { ErrorMessage, useField } from 'formik';
+import { useField } from 'formik';
 import {
   Input,
   InputGroup,
@@ -63,11 +63,6 @@ const CustomInput = (
               </InputRightElement>
             )}
           </InputGroup>
-          <ErrorMessage
-            component='div'
-            name={field.name}
-            style={errorMessage}
-          />
         </Box>
       ) : (
         <Box width='100%'>
@@ -90,18 +85,9 @@ const CustomInput = (
               autoComplete='true'
               ref={ref}
               height='40px'
-              //   backgroundColor={name === 'courseName' ? '#f3f4f9' : '#fff'}
-              //   backgroundColor={
-              //     props.name.startsWith('course') ? '#f3f4f9' : '#fff'
-              //   }
               color='black'
             />
           </InputGroup>
-          <ErrorMessage
-            component='div'
-            name={field.name}
-            style={errorMessage}
-          />
         </Box>
       )}
     </>
@@ -109,9 +95,3 @@ const CustomInput = (
 };
 
 export default forwardRef(CustomInput);
-
-const errorMessage = {
-  color: 'red',
-  position: 'absolute',
-  fontSize: '10px',
-};
